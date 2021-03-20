@@ -11,7 +11,7 @@ git 配置如下: 推送至 github
 	symlinks = false
 	ignorecase = true
 [remote "origin"]
-	url = https://github.com/xiaozhengN/yygh_parent.git
+	url = https://gitee.com/xiaozhengN/yygh_parent.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [branch "main"]
 	remote = origin
