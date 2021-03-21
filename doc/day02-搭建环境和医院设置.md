@@ -9,47 +9,26 @@
 --------------
 ```
 hospital-manage：医院接口模拟端（已开发，直接使用）
-
 yygh-parent：根目录，管理子模块：
-
 common：公共模块父节点
-
 common-util：工具类模块，所有模块都可以依赖于它
-
 rabbit-util：rabbitmq业务封装
-
 service-util：service服务的工具包，包含service服务的公共配置类，所有 service模块依赖于它
-
 server-gateway：服务网关
-
 model：实体类模块
-
 service：api接口服务父节点
-
 service-hosp：医院api接口服务
-
 service-cmn：公共api接口服务
-
 service-user：用户api接口服务
-
 service-order：订单api接口服务
-
 service-oss：文件api接口服务
-
 service-sms：短信 api接口服务
-
 service-task：定时任务服务
-
 service-statistics：统计api接口服务
-
 service-client：feign服务调用父节点
-
 service-cmn-client：公共api接口
-
 service-hosp-client：医院api接口
-
 service-order-client：订单api接口
-
 service-user：用户api接口
 ```
 ![](./images/20210320164321.jpg)
@@ -618,7 +597,7 @@ service-user：会员服务模块
 三、医院设置需求
 ================
 
-**1、**需求
+1、需求
 ----------------
 
 医院设置主要是用来保存开通医院的一些基本信息，每个医院一条信息，保存了医院编号（平台分配，全局唯一）和接口调用相关的签名key等信息，是整个流程的第一步，只有开通了医院设置信息，才可以上传医院相关信息。
@@ -647,7 +626,7 @@ status：状态（锁定/解锁）
 四、医院模块开发
 ================
 
-**1、**搭建医院模块service-hosp
+1、搭建医院模块service-hosp
 ---------------------------------
 
 ### **1.1**搭建service-hosp

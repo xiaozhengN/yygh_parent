@@ -1,4 +1,4 @@
-尚医通
+**尚医通**
 
 版本：V1.0
 
@@ -16,45 +16,27 @@
 ### 2.1巩固以前知识，学习技术点与技术点应用场景，掌握预约挂号业务流程
 
 ### 2.2 核心技术
-
+```
 SpringBoot：简化新Spring应用的初始搭建以及开发过程
-
 SpringCloud：基于Spring Boot实现的云原生应用开发工具，SpringCloud使用的技术：（SpringCloudGateway、Spring Cloud Alibaba Nacos、Spring Cloud Alibaba Sentinel、SpringCloud Task和SpringCloudFeign等）
-
 MyBatis-Plus：持久层框架
-
 Redis：内存缓存
-
 RabbitMQ：消息中间件
-
 HTTPClient: Http协议客户端
-
 Swagger2：Api接口文档工具
-
 Nginx：负载均衡
-
 Lombok
-
 Mysql：关系型数据库
-
 MongoDB：面向文档的NoSQL数据库
-
 Vue.js：web 界面的渐进式框架
-
 Node.js： JavaScript 运行环境
-
 Axios：Axios 是一个基于 promise 的 HTTP 库
-
 NPM：包管理器
-
 Babel：转码器
-
 Webpack：打包工具
-
 Docker ：容器技术
-
 Git：代码管理工具
-
+```
 3、 业务流程
 
 浏览器中查看原图：![尚医通业务流程](./images/20210320144413.jpg)
@@ -95,36 +77,23 @@ mybatis_plus
 其对应的数据库 Schema 脚本如下：
 
 ```
-CREATE TABLE USER
-(
-
+CREATE TABLE USER(
 id BIGINT(20)NOT NULL COMMENT '主键ID',
-
 NAME VARCHAR(30)NULL DEFAULT NULL COMMENT '姓名',
-
 age INT(11)NULL DEFAULT NULL COMMENT '年龄',
-
 email VARCHAR(50)NULL DEFAULT NULL COMMENT '邮箱',
-
 PRIMARY KEY (id)
-
 );
 
 ```
 其对应的数据库 Data 脚本如下：
 ```
 INSERT INTO user (id, name, age, email)VALUES
-
 (1, 'Jone', 18, 'test1@baomidou.com'),
-
 (2, 'Jack', 20, 'test2@baomidou.com'),
-
 (3, 'Tom', 28, 'test3@baomidou.com'),
-
 (4, 'Sandy', 21, 'test4@baomidou.com'),
-
 (5, 'Billie', 24, 'test5@baomidou.com');
-
 ```
 3、确认idea配置
 ----------------------
@@ -161,71 +130,42 @@ Artifact：mybatis_plus
 注意：引入 MyBatis-Plus 之后请不要再次引入 MyBatis，以避免因版本差异导致的问题。
 ```
 <dependencies>
-
-<dependency>
-
-<groupId>org.springframework.boot</groupId>
-
-<artifactId>spring-boot-starter</artifactId>
-
-</dependency>
-
-<dependency>
-
-<groupId>org.springframework.boot</groupId>
-
-<artifactId>spring-boot-starter-test</artifactId>
-
-<scope>test</scope>
-
-<exclusions>
-
-<exclusion>
-
-<groupId>org.junit.vintage</groupId>
-
-<artifactId>junit-vintage-engine</artifactId>
-
-</exclusion>
-
-</exclusions>
-
-</dependency>
-
-<!--mybatis-plus-->
-
-<dependency>
-
-<groupId>com.baomidou</groupId>
-
-<artifactId>mybatis-plus-boot-starter</artifactId>
-
-<version>3.3.1</version>
-
-</dependency>
-
-<!--mysql依赖-->
-
-<dependency>
-
-<groupId>mysql</groupId>
-
-<artifactId>mysql-connector-java</artifactId>
-
-</dependency>
-
-<!--lombok用来简化实体类-->
-
-<dependency>
-
-<groupId>org.projectlombok</groupId>
-
-<artifactId>lombok</artifactId>
-
-<optional>true</optional>
-
-</dependency>
-
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+        <exclusions>
+            <exclusion>
+                <groupId>org.junit.vintage</groupId>
+                <artifactId>junit-vintage-engine</artifactId>
+            </exclusion>
+        </exclusions>
+    </dependency>
+    
+    <!--mybatis-plus-->
+    <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>3.3.1</version>
+    </dependency>
+    
+    <!--mysql依赖-->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+    
+    <!--lombok用来简化实体类-->
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+    </dependency>
 </dependencies>
 ```
 ### 4.3 idea中安装lombok插件
@@ -248,11 +188,8 @@ spring boot 2.0（内置jdbc5驱动）
 #mysql数据库连接
 ```
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-
 spring.datasource.url=jdbc:mysql://localhost:3306/mybatis_plus?characterEncoding=utf-8&useSSL=false
-
 spring.datasource.username=root
-
 spring.datasource.password=root
 ```
 spring boot 2.1及以上（内置jdbc8驱动）
@@ -260,11 +197,8 @@ spring boot 2.1及以上（内置jdbc8驱动）
 注意：driver和url的变化
 ```
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-
 spring.datasource.url=jdbc:mysql://localhost:3306/mybatis_plus?serverTimezone=GMT%2B8
-
 spring.datasource.username=root
-
 spring.datasource.password=root
 ```
 注意：
@@ -350,7 +284,7 @@ mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
 1、插入操作
 ------------------
 
-__//添加__
+//添加
 ```
 @Test  
 public void testAdd() {  
@@ -404,9 +338,7 @@ private String id;
 实体字段中配置 
 ```
 @TableId(type = IdType.AUTO)
-
 @TableId(type = IdType.AUTO)
-
 private Long id;
 ```
 要想影响所有实体的配置，可以设置全局主键配置
@@ -423,7 +355,7 @@ mybatis-plus.global-config.db-config.id-type=auto
 
 注意：update时生成的sql自动是动态sql：UPDATE user SET age=? WHERE id=?
 
-__//修改__
+//修改
 ```
 @Test  
 public void testUpdate() {  
@@ -451,9 +383,9 @@ public void testUpdate() {
 
 实体上增加字段并添加自动填充注解
 ```
-@TableField(fill = FieldFill.__INSERT__)  
-private Date createTime; __//create_time__@TableField(fill = FieldFill.__INSERT_UPDATE__)  
-private Date updateTime; __//update_time__
+@TableField(fill = FieldFill.INSERT)  
+private Date createTime; //create_time@TableField(fill = FieldFill.INSERT_UPDATE)  
+private Date updateTime; //update_time
 ```
 ### 1.3实现元对象处理器接口
 
@@ -462,18 +394,18 @@ private Date updateTime; __//update_time__
 @Component  
 public class MyMetaObjectHandler implements MetaObjectHandler {
 
-//mp执行添加操作，这个方法执行  
-@Override  
-public void insertFill(MetaObject metaObject) {  
-this.setFieldValByName("createTime",new Date(),metaObject);  
-this.setFieldValByName("updateTime",new Date(),metaObject);  
-}
-
-//mp执行修改操作，这个方法执行  
-@Override  
-public void updateFill(MetaObject metaObject) {  
-this.setFieldValByName("updateTime",new Date(),metaObject);  
-}  
+    //mp执行添加操作，这个方法执行  
+    @Override  
+    public void insertFill(MetaObject metaObject) {  
+        this.setFieldValByName("createTime",new Date(),metaObject);  
+        this.setFieldValByName("updateTime",new Date(),metaObject);  
+    }
+    
+    //mp执行修改操作，这个方法执行  
+    @Override  
+    public void updateFill(MetaObject metaObject) {  
+        this.setFieldValByName("updateTime",new Date(),metaObject);  
+    }  
 }
 ```
 3、乐观锁
@@ -515,7 +447,7 @@ private Integer version;
 @Configuration  
 @MapperScan("com.atguigu.demomptest.mapper")  
 public class MpConfig {  
-__/____\* 乐观锁插件____*/__
+/\* 乐观锁插件*/
 @Bean  
 public OptimisticLockerInterceptor optimisticLockerInterceptor() {  
 return new OptimisticLockerInterceptor();  
@@ -527,9 +459,7 @@ return new OptimisticLockerInterceptor();
 在 MybatisPlusConfig 中注册 Bean
 ```
 /
-
 \* 乐观锁插件
-
 */
 @Bean
 public OptimisticLockerInterceptor optimisticLockerInterceptor() {
@@ -546,12 +476,12 @@ return new OptimisticLockerInterceptor();
 
 完成了动态sql的foreach的功能
 
-__//多个id批量查询__
+//多个id批量查询
 ```
 @Test  
 public void testSelect1() {  
-List<User> users = userMapper.selectBatchIds(Arrays.__asList__(1, 2, 3));  
-System.__out__.println(users);  
+List<User> users = userMapper.selectBatchIds(Arrays.asList(1, 2, 3));  
+System.out.println(users);  
 }
 ```
 ### 1.2简单的条件查询
@@ -560,7 +490,7 @@ System.__out__.println(users);
 
 注意：map中的key对应数据库中的列名。如：数据库user\_id，实体类是userId，这时map的key需要填写user\_id
 
-__//简单条件查询__
+//简单条件查询
 
 ```
 @Test  
@@ -569,7 +499,7 @@ Map<String, Object> columnMap = new HashMap<>();
 columnMap.put("name","Jack");  
 columnMap.put("age",20);  
 List<User> users = userMapper.selectByMap(columnMap);  
-System.__out__.println(users);  
+System.out.println(users);  
 }
 ```
 2、分页
@@ -583,7 +513,7 @@ MyBatis Plus自带分页插件，只要简单的配置即可实现分页功能
 
 配置类中添加@Bean配置
 ```
-__/____ \* 分页插件____ */__
+/ \* 分页插件 */
 @Bean  
 public PaginationInterceptor paginationInterceptor() {  
 return new PaginationInterceptor();  
@@ -593,16 +523,16 @@ return new PaginationInterceptor();
 
 测试：最终通过page对象获取相关数据
 ```
-__//分页查询__@Test  
+//分页查询@Test  
 public void testSelectPage() {  
-Page<User> page = new Page(1,3);  
-Page<User> userPage = userMapper.selectPage(page, null);  
-__//返回对象得到分页所有数据__long pages = userPage.getPages(); __//总页数__long current = userPage.getCurrent(); __//当前页__List<User> records = userPage.getRecords(); __//查询数据集合__long total = userPage.getTotal(); __//总记录数__boolean hasNext = userPage.hasNext(); __//下一页__boolean hasPrevious = userPage.hasPrevious(); __//上一页__System.__out__.println(pages);  
-System.__out__.println(current);  
-System.__out__.println(records);  
-System.__out__.println(total);  
-System.__out__.println(hasNext);  
-System.__out__.println(hasPrevious);  
+    Page<User> page = new Page(1,3);  
+    Page<User> userPage = userMapper.selectPage(page, null);  
+    //返回对象得到分页所有数据long pages = userPage.getPages(); //总页数long current = userPage.getCurrent(); //当前页List<User> records = userPage.getRecords(); //查询数据集合long total = userPage.getTotal(); //总记录数boolean hasNext = userPage.hasNext(); //下一页boolean hasPrevious = userPage.hasPrevious(); //上一页System.out.println(pages);  
+    System.out.println(current);  
+    System.out.println(records);  
+    System.out.println(total);  
+    System.out.println(hasNext);  
+    System.out.println(hasPrevious);  
 }
 ```
 ### 2.2测试selectMapsPage分页
@@ -671,19 +601,12 @@ system.out.println(result);
 ### 1.3简单条件删除
 ```
 @Test
-
 public void testDeleteByMap() {
-
-HashMap<String, Object> map = new HashMap<>();
-
-map.put("name", "Helen");
-
-map.put("age", 18);
-
-int result = userMapper.deleteByMap(map);
-
-system.out.println(result);
-
+    HashMap<String, Object> map = new HashMap<>();
+    map.put("name", "Helen");
+    map.put("age", 18);
+    int result = userMapper.deleteByMap(map);
+    system.out.println(result);
 }
 ```
 2、逻辑删除
@@ -714,7 +637,6 @@ ALTERTABLE \`user\` ADD COLUMN \`deleted\` boolean DEFAULT false
 添加deleted 字段，并加上 @TableLogic 注解
 ```
 @TableLogic
-
 private Integer deleted;
 ```
 #### 2.2.3配置（可选）
@@ -722,7 +644,6 @@ private Integer deleted;
 application.properties 加入以下配置，此为默认值，如果你的默认值和mp默认的一样,该配置可无
 ```
 mybatis-plus.global-config.db-config.logic-delete-value=1
-
 mybatis-plus.global-config.db-config.logic-not-delete-value=0
 ```
 #### 2.2.4 测试
@@ -734,13 +655,9 @@ mybatis-plus.global-config.db-config.logic-not-delete-value=0
 注意：被删除前，数据的deleted 字段的值必须是 0，才能被选取出来执行逻辑删除的操作
 ```
 @Test
-
 public void testLogicDelete() {
-
-int result = userMapper.deleteById(1L);
-
-system.out.println(result);
-
+    int result = userMapper.deleteById(1L);
+    system.out.println(result);
 }
 ```
 #### 2.2.5测试逻辑删除后的查询
@@ -748,13 +665,9 @@ system.out.println(result);
 MyBatis Plus中查询操作也会自动添加逻辑删除字段的判断
 ```
 @Test
-
 public void testLogicDeleteSelect() {
-
-List<User> users = userMapper.selectList(null);
-
-users.forEach(System.out::println);
-
+    List<User> users = userMapper.selectList(null);
+    users.forEach(System.out::println);
 }
 ```
 八、条件构造器和常用接口
@@ -779,12 +692,10 @@ LambdaQueryWrapper ：用于Lambda语法使用的查询Wrapper
 LambdaUpdateWrapper ： Lambda 更新封装Wrapper
 ```
 @SpringBootTest
-
 public class QueryWrapperTests {
 
-@Autowired
-
-privateUserMapperuserMapper;
+    @Autowired
+    privateUserMapperuserMapper;
 
 }
 ```
@@ -794,23 +705,14 @@ privateUserMapperuserMapper;
 ### 2.1 ge、gt、le、lt、isNull、isNotNull
 ```
 @Test
-
 public void testQuery() {
-
-QueryWrapper<User>queryWrapper = newQueryWrapper<>();
-
-queryWrapper
-
-.isNull("name")
-
-.ge("age", 12)
-
-.isNotNull("email");
-
-int result = userMapper.delete(queryWrapper);
-
-System.out.println("delete return count = " + result);
-
+    QueryWrapper<User>queryWrapper = newQueryWrapper<>();
+    queryWrapper
+    .isNull("name")
+    .ge("age", 12)
+    .isNotNull("email");
+    int result = userMapper.delete(queryWrapper);
+    System.out.println("delete return count = " + result);
 }
 ```
 ### 2.2 eq、ne
@@ -818,17 +720,11 @@ System.out.println("delete return count = " + result);
 注意：seletOne()返回的是一条实体记录，当出现多条时会报错
 ```
 @Test
-
 public void testSelectOne() {
-
-QueryWrapper<User>queryWrapper = newQueryWrapper<>();
-
-queryWrapper.eq("name", "Tom");
-
-Useruser = userMapper.selectOne(queryWrapper);//只能返回一条记录，多余一条则抛出异常
-
-System.out.println(user);
-
+    QueryWrapper<User>queryWrapper = newQueryWrapper<>();
+    queryWrapper.eq("name", "Tom");
+    Useruser = userMapper.selectOne(queryWrapper);//只能返回一条记录，多余一条则抛出异常
+    System.out.println(user);
 }
 ```
 ### 2.3 between、notBetween
@@ -836,17 +732,11 @@ System.out.println(user);
 包含大小边界
 ```
 @Test
-
 public void testSelectCount() {
-
-QueryWrapper<User>queryWrapper = newQueryWrapper<>();
-
-queryWrapper.between("age", 20, 30);
-
-Integer count = userMapper.selectCount(queryWrapper); //返回数据数量
-
-System.out.println(count);
-
+    QueryWrapper<User>queryWrapper = newQueryWrapper<>();
+    queryWrapper.between("age", 20, 30);
+    Integer count = userMapper.selectCount(queryWrapper); //返回数据数量
+    System.out.println(count);
 }
 ```
 ### 2.4 like、notLike、likeLeft、likeRight
@@ -854,164 +744,83 @@ System.out.println(count);
 selectMaps()返回Map集合列表，通常配合select()使用
 ```
 @Test
-
 public void testSelectMaps() {
-
-QueryWrapper<User>queryWrapper = newQueryWrapper<>();
-
-queryWrapper
-
-.select("name", "age")
-
-.like("name", "e")
-
-.likeRight("email", "5");
-
-List<Map<String, Object>>maps = userMapper.selectMaps(queryWrapper);//返回值是Map列表
-
-maps.forEach(System.out::println);
-
+    QueryWrapper<User>queryWrapper = newQueryWrapper<>();
+    queryWrapper
+    .select("name", "age")
+    .like("name", "e")
+    .likeRight("email", "5");
+    List<Map<String, Object>>maps = userMapper.selectMaps(queryWrapper);//返回值是Map列表
+    maps.forEach(System.out::println);
 }
 ```
 ### 2.5 orderBy、orderByDesc、orderByAsc
 ```
 @Test
-
 public void testSelectListOrderBy() {
-
-QueryWrapper<User>queryWrapper = newQueryWrapper<>();
-
-queryWrapper.orderByDesc("age", "id");
-
-List<User>users = userMapper.selectList(queryWrapper);
-
-users.forEach(System.out::println);
-
+    QueryWrapper<User>queryWrapper = newQueryWrapper<>();
+    queryWrapper.orderByDesc("age", "id");
+    List<User>users = userMapper.selectList(queryWrapper);
+    users.forEach(System.out::println);
 }
 ```
 2、查询方式
 ------------------
 
-查询方式
+|查询方式|说明|
+|---|---|
+|setSqlSelect|设置SELECT查询字段|
+|where|WHERE语句，拼接+ WHERE条件|
+|and|AND语句，拼接+ AND字段=值|
+|andNew|AND语句，拼接+ AND(字段=值)|
+|or|OR语句，拼接+ OR字段=值|
+|orNew|OR语句，拼接+ OR(字段=值)|
+|eq|等于=|
+|allEq|基于map内容等于=|
+|ne|不等于<>|
+|gt|大于>|
+|ge|大于等于>=|
+|lt|小于<|
+|le|小于等于<=|
+|like|模糊查询LIKE|
+|notLike|模糊查询NOTLIKE|
+|in|IN查询|
+|notIn|NOTIN查询|
+|isNull|NULL值查询|
+|isNotNull|ISNOTNULL|
+|groupBy|分组GROUPBY|
+|having|HAVING关键词|
+|orderBy|排序ORDERBY|
+|orderAsc|ASC排序ORDERBY|
+|orderDesc|DESC排序ORDERBY|
+|exists|EXISTS条件语句|
+|notExists|NOTEXISTS条件语句|
+|between|BETWEEN条件语句|
+|notBetween|NOTBETWEEN条件语句|
+|addFilter|自由拼接SQL|
+|last|拼接在最后，例如：last(“LIMIT1”)|
 
-说明
 
-setSqlSelect
 
-设置 SELECT 查询字段
 
-where
 
-WHERE 语句，拼接 + WHERE 条件
 
-and
 
-AND 语句，拼接 + AND 字段=值
 
-andNew
 
-AND 语句，拼接 + AND (字段=值)
 
-or
 
-OR 语句，拼接 + OR 字段=值
 
-orNew
 
-OR 语句，拼接 + OR (字段=值)
 
-eq
 
-等于=
 
-allEq
 
-基于 map 内容等于=
 
-ne
 
-不等于<>
 
-gt
 
-大于>
 
-ge
 
-大于等于>=
 
-lt
 
-小于<
-
-le
-
-小于等于<=
-
-like
-
-模糊查询 LIKE
-
-notLike
-
-模糊查询 NOT LIKE
-
-in
-
-IN 查询
-
-notIn
-
-NOT IN 查询
-
-isNull
-
-NULL 值查询
-
-isNotNull
-
-IS NOT NULL
-
-groupBy
-
-分组 GROUP BY
-
-having
-
-HAVING 关键词
-
-orderBy
-
-排序 ORDER BY
-
-orderAsc
-
-ASC 排序 ORDER BY
-
-orderDesc
-
-DESC 排序 ORDER BY
-
-exists
-
-EXISTS 条件语句
-
-notExists
-
-NOT EXISTS 条件语句
-
-between
-
-BETWEEN 条件语句
-
-notBetween
-
-NOT BETWEEN 条件语句
-
-addFilter
-
-自由拼接 SQL
-
-last
-
-拼接在最后，例如：last(“LIMIT 1”)
